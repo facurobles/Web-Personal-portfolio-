@@ -1,0 +1,24 @@
+<div class="container-fluid todo">
+  <div class="row">
+    <div class="col contmenu">
+      <nav >
+        
+        <div class="menu" [ngClass]="{'menuNavOn':bandera, 'menuNavOff': !bandera}">
+          <ul>
+            <li><a >1.Home</a></li>
+            <li><a >2.AboutMe</a></li>
+            <li><a >3.Projects</a></li>
+            <li><a >4.Contact</a></li>
+          </ul>
+        </div>
+        <div (click)="changeBandera()" >
+          <button [ngClass]="{'menuIconoOff':bandera, 'menuIconoOn': !bandera}">
+            <div class="linea1"></div>
+            <div class="linea2"></div>
+            <div class="linea3"></div>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </div>
+</div>

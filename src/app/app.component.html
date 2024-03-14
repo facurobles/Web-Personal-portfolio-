@@ -1,0 +1,34 @@
+<div id="all">
+    <div class="container-fluid fondo">
+        <div>
+            <div class="divMenu" [ngClass]="{'menuNavOn':bandera, 'menuNavOff': !bandera}">
+                <div class="row menu">
+                    <div class="col text-center divItem">
+                        <div class="item" (click)="scrollToElement('home')">1.Home</div>
+                    </div>
+                    <div class="col text-center divItem">
+                        <div class="item" (click)="scrollToElement('aboutMe')">2.AboutMe</div>
+                    </div>
+                    <div class="col text-center divItem">
+                        <div class="item" (click)="scrollToElement('projects')">3.Projects</div>
+                    </div>
+                    <div class="col text-center divItem">
+                        <div class="item" (click)="scrollToElement('contact')">4.Contact</div>
+                    </div>
+                </div>
+            </div>
+            <div class="iconMenu" (click)="changeBandera()"
+                [ngClass]="{'menuIconoOff':bandera, 'menuIconoOn': !bandera}">
+                <div class="linea1"></div>
+                <div class="linea2"></div>
+                <div class="linea3"></div>
+            </div>
+        </div>
+    </div>
+
+    <app-home id="home"></app-home>
+    <app-about-me id="aboutMe"></app-about-me>
+    <app-projects id="projects"></app-projects>
+    <app-contact id="contact"></app-contact>
+    <app-footer></app-footer>
+</div>

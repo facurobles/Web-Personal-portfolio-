@@ -1,0 +1,35 @@
+<div class="container-fluid">
+    <div class="row marco" data-aos="fade-up">
+
+        <div class="col-lg-6 col-12">
+
+            <div>
+                <h1 id="wname">Whats your name?:</h1> <input type="text" name="name" id="name"
+                    placeholder="enter name.." [(ngModel)]="name" (keyup.enter)="func1()"> 
+                    <button id="nameButton" (click)="func1()"><i class="fa-solid fa-check" style="color: #04ff00;"></i></button>
+            </div>
+
+
+            <div id="contTexto">
+                <h1 id="hello">Hello {{name}}!</h1> <br>
+                <h1 id="myname">My name is Facu Robles.</h1> <br>
+                <h1 id="choose">Choose an option to continue..</h1>
+            </div>
+
+            <div id="contOptions">
+                <br>
+                <a ><h1  routerLink="/whoAmI" routerLinkActive="activo" id="option1"> 1.Who am I?.</h1></a>
+                <br>
+                <a ><h1 routerLink="option2" routerLinkActive="activo" id="option2"> 2.Studies.</h1></a>
+                <br>
+                <a ><h1  routerLink="option3" routerLinkActive="activo" id="option3"> 3.Skills.</h1></a>
+            </div>
+        </div>
+
+        <div class="col-lg-6 col-12">
+            <div id="optionView">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div>
+</div>

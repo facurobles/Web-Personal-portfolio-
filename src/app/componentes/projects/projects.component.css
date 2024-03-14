@@ -1,0 +1,99 @@
+* {
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-fluid {
+    min-height: 100vh;
+    background: var(--background);
+    color: var(--color-font);
+    margin-bottom: 50px;
+}
+
+.rowTitulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--secundario);
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    background: var(--secundario);
+    color: var(--color-font);
+    font-size: 64px;
+    width: 97%;
+}
+
+.divProyecto {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 10px;
+}
+
+.proyecto {
+    border: 2px solid var(--color-font);
+}
+
+.contenido {
+    position: relative;
+    overflow: hidden;
+    height: 320px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--color-font);
+}
+
+.carrousel {
+    width: 100%;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    transition: all 0.3s ease;
+}
+
+.rowTituloProyecto {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: min-content;
+    background: var(--secundario);
+    color: var(--color-font);
+    font-size: 40px;
+}
+
+.descripcion {
+    padding: 3px;
+}
+
+p {
+    font-size: 30px;
+}
+
+.contenido:hover {
+    .carrousel {
+        top: 0;
+    }
+}
+
+a{
+    cursor: url(../../../assets/hand.png), auto;    
+}
+
+
+@media screen and (max-width: 992px) {
+    .contenido {
+        position: relative;
+        overflow:auto;
+        height: min-content;
+    }
+    .carrousel {
+        width: 100%;
+        position: static;
+    }
+}

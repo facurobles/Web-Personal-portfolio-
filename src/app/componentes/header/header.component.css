@@ -1,0 +1,256 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+a, button{
+    cursor: url(../../../assets/hand.png), auto;    
+}
+
+.container-fluid{
+    background: #1a1a1a;
+    height: 10vh;
+}
+
+
+ul{
+    text-align: center;
+}
+
+li{
+    padding-left: 3%;
+    padding-right: 3%;
+    display: inline-flex;
+
+}
+
+/*tamaño a div menu*/
+.menu{
+    width: 89%;
+    margin-left: 5%;
+    background: var(--secundario);
+}
+
+.contmenu{
+    overflow: hidden;
+}
+
+
+/*traslacion de menu al hacer click dando efecto desplegable*/
+.menuNavOn{
+    transform: translateX(250vh);
+    transition: 1s;
+}
+.menuNavOff{
+    transform: translateX(0);
+    transition: 1s;
+    transition-delay: 0.7s;
+}
+
+a:hover{
+    transform: scale(1.2);
+}
+
+
+/*estilos de link*/
+a{  
+    transition-duration: 0.15s;
+    text-decoration: none;
+    font-family: 'VT323', monospace;
+    color: rgb(0, 255, 0);
+    font-size: 3em;
+}
+
+
+/*button para que aparezca la mano al posicionar el puntero*/
+button{
+    border: none;
+    color: none;
+    background: transparent;
+}
+
+/*Icono de menu en vista normal de 3 linea horizontal*/
+.menuIconoOn{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 15px;
+    right: 10px;
+    width: 3em;
+    height: 3em;
+    transition-duration: 2s;
+}
+
+.menuIconoOn .linea1{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        animation: lineaUno .1s linear 0.3s 1 forwards;
+    }
+.menuIconoOn .linea2{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        animation: lineaDos .2s linear 1 forwards ;
+    }
+.menuIconoOn .linea3{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        animation: lineaTres .1s linear 0.3s 1 forwards;
+    }
+
+
+/*Icono de menu en vista cruz*/
+.menuIconoOff{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 15px;
+    right: 10px;
+    width: 3em;
+    height: 3em;
+    transition-duration: 0.2s;
+
+}
+
+.menuIconoOff .linea1{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        transform: rotate(45deg)  translateY(330%);
+        animation: lineaUnoOff .1s linear 0.5s  1 forwards;
+    }
+.menuIconoOff .linea2{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        width: 0px;
+        animation: lineaDosOff .1s linear 0.7s 1 forwards ;
+
+    }
+.menuIconoOff .linea3{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        transform: rotate(-45deg)  translateY(-330%);
+        animation: lineaTresOff .1s linear 0.5s 1 forwards;
+
+    }
+
+
+
+/*animacion de 3 lineas normal*/
+@keyframes lineaDos {
+    from{width: 100%;}
+    to {width: 0%;}
+}
+
+@keyframes lineaUno {
+    to{
+        transform: rotate(45deg) translateY(330%);
+    }
+}
+@keyframes lineaTres {
+    to{
+        transform: rotate(-45deg) translateY(-330%);
+    }
+}
+
+/*animacoin de 3 lineas a cruz*/
+@keyframes lineaDosOff {
+    from{width: 0%;}
+    to {width: 100%;}
+}
+
+@keyframes lineaUnoOff {
+    to{
+        transform: rotate(0deg);
+    }
+}
+@keyframes lineaTresOff {
+    to{
+        transform: rotate(0deg) ;
+    }
+}
+
+
+/*----------------------------------------------------------------------*/
+
+/*Media querys*/
+@media screen and (max-width: 1000px){
+    li{
+        padding-left: 1%;
+    }
+    .menu{
+        width: 85%;
+    }
+}
+@media screen and (max-width: 900px){
+
+    .menu{
+        display: flex;
+        flex-direction: column;
+        flex-wrap: wrap;
+        width: min-content;
+        margin-top: 10%;
+        margin-left: 100%;
+        background: var(--secundario);
+    }
+
+    li{
+        display: flex;
+    }
+
+    .menuNavOn{
+        transform: translateX(0%);
+        transition: 0.5s;
+    }
+
+    .menuNavOff{
+        transform: translateX(-100%);
+        transition: 0.5s;
+        transition-delay: 0.5s;
+    }
+}
+
+
+@media screen and (max-width: 800px){
+    .menuIconoOff{
+        height: 2.5em;
+        width: 2.5em;
+    }
+    .menuIconoOn{
+        height: 2.5em;
+        width: 2.5em;
+    }
+}
+@media screen and (max-width: 600px){
+    .menuIconoOff{
+        height: 2em;
+        width: 2em;
+    }
+    .menuIconoOn{
+        height: 2em;
+        width: 2em;
+    }
+}
+@media screen and (max-width: 400px){
+    .menuIconoOff{
+        height: 1.5em;
+        width: 1.5em;
+    }
+    .menuIconoOn{
+        height: 1.5em;
+        width: 1.5em;
+    }
+    .menu{
+        margin-top: 15%;
+    }
+}
+
+

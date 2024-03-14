@@ -1,0 +1,189 @@
+.container-fluid{
+    margin: 0%;
+    padding: 0%;
+    height: 100vh;
+    background: #1a1a1a;
+    overflow: hidden !important;
+}
+
+@keyframes flech {
+    50%{bottom: 0;}
+}
+
+
+/*texto Welcome*/
+.texto{
+    border-right: 4px solid;
+    border-color: rgb(0, 255, 0);
+    display: inline;
+    animation:blink 1s infinite step-end;
+    font-size: 16em;
+    float: left;
+}
+
+#welcome{
+    padding-left: 100px;
+    width: 10ch;
+    font-family: 'VT323', monospace;
+    color: rgb(30, 255, 0); 
+}
+
+
+@keyframes blink {
+    50% {border-color: transparent;}
+}
+
+
+
+/*Botones selectores de color*/
+.botones{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    padding-top: 100px;
+    left: 10px;
+}
+
+button:focus {
+    outline: none;
+}
+
+
+i{
+    font-size: 12px;
+}
+
+
+button{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 15px;
+    height: 15px;
+    opacity: 50%;
+    margin-top: 20px;
+    border: none;
+    transition-duration: .2s;
+    animation: botonesAnimation 1s 0s 6 ;
+    border-radius: 100%;
+    z-index: 5;
+}
+@keyframes botonesAnimation {
+    50%{
+        transform: scale(1.5);
+        opacity: 100% ;
+    }
+    60%{
+        transform: scale(1.5);
+        opacity: 100% ;
+    }
+}
+
+
+a, button{
+    cursor: url(../../../assets/hand.png), auto;    
+}
+button:hover{
+    opacity: 100%;
+}
+
+button:nth-child(1){
+    background: rgb(252, 0, 0);
+}
+button:nth-child(2){
+    background: rgb(0, 4, 255);
+}
+button:nth-child(3){
+    background: rgb(4, 255, 17);
+}
+button:nth-child(4){
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+}
+button:nth-child(5){
+    background: rgb(255, 255, 255);
+    color: rgb(2, 2, 2);
+}
+
+
+/*ANIMACION BINARIOS */
+.binario{
+    position: absolute;
+    animation-name: binario;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    color: var(--color);
+    font-size: var(--font-size);
+    font-family: 'VT323', monospace;
+    min-height: 10px;
+}   
+
+@keyframes binario{
+    0%{
+        bottom: 100%;
+        text-shadow: 0px 0px 20px var(--color);
+    }
+
+    100%{
+        bottom: 0%;
+        opacity: 0%;
+}}
+
+/*----------------------------------------------------------------------*/
+
+/*Media querys*/
+@media screen and (max-width: 1000px){
+    .texto{
+        font-size: 12em;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .texto{
+        font-size: 11.5em;
+    }
+}
+@media screen and (max-width: 870px) {
+    .texto{
+        font-size: 9em;
+    }
+}
+@media screen and (max-width: 720px) {
+    .texto{
+        font-size: 8em;
+    }
+}
+@media screen and (max-width: 610px) {
+    .texto{
+        font-size: 7em;
+    }
+}
+
+@media screen and (max-width: 570px) {
+    .texto{
+        font-size: 6em;
+    }
+    #welcome{
+        padding-left: 60px;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    .texto{
+        font-size: 5em;
+    }  
+}
+@media screen and (max-width: 380px) {
+    .texto{
+        font-size: 4em;
+    } 
+}
+@media screen and (max-width: 300px) {
+    .texto{
+        font-size: 3em;
+    } 
+}
+
+
+

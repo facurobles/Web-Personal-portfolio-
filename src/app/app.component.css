@@ -1,0 +1,199 @@
+*{
+    margin: 0%;
+    padding: 0%;
+    cursor: url(../assets/arrow.png), auto;
+}
+#all{
+    background: var(--background);
+    overflow: hidden;
+}
+.fondo{
+    width: 100%;
+    height: 80px;
+}
+
+.item, .iconMenu{
+    cursor: url(../assets/hand.png), auto;    
+}
+
+/*tamaño a div menu*/
+.divMenu{
+    height: min-content;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+
+.menu{
+    height: 80px;
+    background: #009200a9;
+    z-index: 10;
+    position: relative;
+}
+
+/*traslacion de menu al hacer click dando efecto desplegable*/
+.menuNavOn{
+    transform: translateX(250vh);
+    transition: 0.5s;
+}
+.menuNavOff{
+    transform: translateX(0);
+    transition: 0.5s;
+    transition-delay: 0.5s;
+}
+
+/*estilos de items del menu*/
+.divItem{
+    height: min-content;
+    display: flex;
+    justify-content: center;
+}
+.item{  
+    height: min-content;
+    transition:all 0.1s ease;
+    font-family: 'VT323', monospace;
+    color: rgb(0, 255, 0);
+    font-size: 45px;
+    width: min-content;
+}
+.item:hover{
+    transform: scale(1.1);
+}
+
+/*Icono de menu en vista normal de 3 linea horizontal*/
+.menuIconoOn{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 15px;
+    right: 10px;
+    width: 3em;
+    height: 3em;
+    z-index: 10;
+}
+
+.menuIconoOn .linea1{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        animation: lineaUno .2s linear 0.3s 1 forwards;
+    }
+.menuIconoOn .linea2{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        animation: lineaDos .3s linear 1 forwards ;
+    }
+.menuIconoOn .linea3{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        animation: lineaTres .2s linear 0.3s 1 forwards;
+    }
+
+
+/*Icono de menu en vista cruz*/
+.menuIconoOff{
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    top: 15px;
+    right: 10px;
+    width: 3em;
+    height: 3em;
+    z-index: 10;
+}
+
+.menuIconoOff .linea1{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        transform: rotate(45deg)  translateY(330%);
+        animation: lineaUnoOff .2s linear 0.2s  1 forwards;
+    }
+.menuIconoOff .linea2{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        width: 0px;
+        animation: lineaDosOff .2s linear 0.4s 1 forwards ;
+
+    }
+.menuIconoOff .linea3{
+        width: 100%;
+        height: 15%;
+        background: rgb(0, 255, 0);
+        margin-top: 20%;
+        transform: rotate(-45deg)  translateY(-330%);
+        animation: lineaTresOff .2s linear 0.2s 1 forwards;
+
+    }
+
+
+
+/*animacion de 3 lineas normal*/
+@keyframes lineaDos {
+    from{width: 100%;}
+    to {width: 0%;}
+}
+
+@keyframes lineaUno {
+    to{
+        transform: rotate(45deg) translateY(330%);
+    }
+}
+@keyframes lineaTres {
+    to{
+        transform: rotate(-45deg) translateY(-330%);
+    }
+}
+
+/*animacoin de 3 lineas a cruz*/
+@keyframes lineaDosOff {
+    from{width: 0%;}
+    to {width: 100%;}
+}
+
+@keyframes lineaUnoOff {
+    to{
+        transform: rotate(0deg);
+    }
+}
+@keyframes lineaTresOff {
+    to{
+        transform: rotate(0deg) ;
+    }
+}
+
+
+/*----------------------------------------------------------------------*/
+
+/*Media querys*/
+
+@media screen and (max-width: 992px){
+    .menu{
+        background: rgb(0, 146, 0);
+        display: flex;
+        width: min-content;
+        height:min-content;
+        position: absolute;
+        top: 4em;
+        right: 0%;
+    }
+    .menuNavOn{
+        transform: translateX(100vh);
+        transition: 0.5s;
+    }
+    .menuNavOff{
+        transform: translateX(0);
+        transition: 0.5s;
+        transition-delay: 0.3s;
+    }
+}
+
+
+
+
+

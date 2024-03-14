@@ -1,0 +1,45 @@
+*{
+    margin: 0%;
+    padding: 0%;
+}
+
+.container-fluid{
+    height: min-content;
+    background: var(--background-color);
+    color: var(--color-font);
+    border-top: 2px solid var(--secundario);
+    padding: 10px;
+}
+
+.item{
+    padding-top: 20px;
+}
+
+i{
+    font-size: 2em;
+    margin-right: 6%;
+    color: var(--color-font);
+    transition-duration: 0.2s;
+}
+
+i:hover{
+    transform: scale(1.2);
+    text-shadow: 0px 0px 10px var(--color-font);
+}
+
+a{
+    cursor: url(../../../assets/hand.png), auto;    
+}
+
+
+#flechaUp{
+    position: fixed;
+    bottom: 30px;
+    right: 15px;
+    height: 30px;
+    width: 30px;
+    transition-duration: 0.2s;
+}
+#flechaUp:hover{
+    transform: scale(1.2);
+}

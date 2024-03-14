@@ -1,0 +1,26 @@
+<div class="container-fluid">
+
+    <div class="banner">
+        <div class="botones">
+            <button (click)="rojo()" title="Rojo"></button>
+            <button (click)="azul()" title="Azul"></button>
+            <button (click)="verde()" title="Verde"></button>
+            <button (click)="agrandar()" title="+Tamaño"><i class="fa-solid fa-plus"></i></button>
+            <button (click)="reducir()" title="-Tamaño"><i class="fa-solid fa-minus"></i></button>
+        </div>
+        <div>
+            <div class="binario" [ngStyle]="presentacion" *ngFor="let i of arrayElemento" [style.left.%]="i.left"
+                [style.animation-duration.s]="i.duration" >
+                {{i.numero}}
+            </div>
+        </div>
+
+        <div class="texto">
+            <span id="welcome">WELCOME!!!</span>
+        </div>
+    </div>
+
+
+
+
+</div>

@@ -1,0 +1,21 @@
+.container-fluid{
+    height: 100%;
+}
+
+#caja{
+    height: min-content;
+    margin-bottom: 10px ;
+    border: 2px solid var(--color-font);
+}
+
+h1{
+    background: var(--secundario);
+    text-align: center;
+    position: relative;
+}
+
+h2{
+    padding-left: 10px;
+    line-height:0.7em;
+}
+
