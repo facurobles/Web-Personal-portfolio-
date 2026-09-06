@@ -1,4 +1,3 @@
-import { keyframes } from '@angular/animations';
 import { Component } from '@angular/core';
 
 @Component({

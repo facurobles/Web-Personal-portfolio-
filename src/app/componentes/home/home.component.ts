@@ -7,28 +7,68 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
-  /*bakar haciendo click en la flecha*/
-  scrollDown(): void {
-    window.scrollBy({
-      top: window.innerHeight,
-      behavior: 'smooth'
+  showBootLog = true;
+  showWelcome = false;
+  showRain = false;
+  showActions = false;
+  loadingStarted = false;
+  loadingComplete = false;
+  loadingProgress = 0;
+
+  scrollToSection(sectionId: string): void {
+    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  /*------------secuencia de arranque----------*/
+  private startBootSequence(): void {
+    this.typeText('bootLine1', '> booting portfolio.exe', 45, () => {
+      this.typeText('bootLine2', '> loading creative_mode... ', 45, () => {
+        this.loadingStarted = true;
+        const progress = setInterval(() => {
+          this.loadingProgress += 1;
+
+          if (this.loadingProgress >= 100) {
+            clearInterval(progress);
+            this.loadingComplete = true;
+            this.showBootLog = false;
+            this.showRain = true;
+            setTimeout(() => {
+              this.showWelcome = true;
+              setTimeout(() => this.typeHeroText(), 0);
+            }, 250);
+          }
+        }, 20);
+      });
     });
   }
 
-  /*------------efec maquina de escribir welcome----------*/
-  maquinaEscribir(){
-    const escrito = document.getElementById("welcome");
-    const texto:string = escrito!.innerHTML;
-    escrito!.innerHTML = '';
-    const arrayTexto = texto?.split('');
-    let contador = 0;
-    const intervalo = setInterval(function(){
-      escrito!.innerHTML += texto[contador];
-      contador++
-      if(contador == texto.length){
-        clearInterval(intervalo);
+  private typeHeroText(): void {
+    this.typeText('welcome', 'WELCOME!!!', 120, () => {
+      this.typeText('heroName', "I'M FACU ROBLES", 75, () => {
+        this.typeText('heroRole', 'FULL STACK DEVELOPER · SYSTEMS ENGINEERING STUDENT', 45, () => {
+          this.showActions = true;
+        });
+      });
+    });
+  }
+
+  private typeText(elementId: string, text: string, speed: number, onComplete: () => void): void {
+    const element = document.getElementById(elementId);
+    if (!element) {
+      onComplete();
+      return;
+    }
+
+    let index = 0;
+    const interval = setInterval(() => {
+      element.textContent += text[index];
+      index += 1;
+
+      if (index === text.length) {
+        clearInterval(interval);
+        onComplete();
       }
-    },300)
+    }, speed);
   }
   
   /*------------arreglo de binarios------------*/ 
@@ -87,7 +127,7 @@ export class HomeComponent {
 
   ngAfterViewInit(): void {
     this.genRandom();
-    this.maquinaEscribir();
+    this.startBootSequence();
     
   }
 

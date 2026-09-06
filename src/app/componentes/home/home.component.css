@@ -1,22 +1,24 @@
 .container-fluid {
+    position: relative;
     margin: 0%;
     padding: 0%;
     height: 100vh;
-    background: #1a1a1a;
+    min-height: 100vh;
+    max-height: 100vh;
+    background: var(--background);
     overflow: hidden !important;
 }
 
-@keyframes flech {
-    50% {
-        bottom: 0;
-    }
+.banner {
+    position: relative;
+    height: 100%;
+    overflow: hidden;
 }
-
 
 /*texto Welcome*/
 .texto {
     border-right: 4px solid;
-    border-color: rgb(0, 255, 0);
+    border-color: var(--color-font);
     display: inline;
     animation: blink 1s infinite step-end;
     font-size: 16em;
@@ -27,7 +29,7 @@
     padding-left: 100px;
     width: 10ch;
     font-family: 'VT323', monospace;
-    color: rgb(30, 255, 0);
+    color: var(--color-font);
 }
 
 
@@ -69,23 +71,10 @@ button {
     margin-top: 20px;
     border: none;
     transition-duration: .2s;
-    animation: botonesAnimation 1s 0s 6;
+    animation: none;
     border-radius: 100%;
     z-index: 5;
 }
-
-@keyframes botonesAnimation {
-    50% {
-        transform: scale(1.5);
-        opacity: 100%;
-    }
-
-    60% {
-        transform: scale(1.5);
-        opacity: 100%;
-    }
-}
-
 
 a,
 button {
@@ -118,6 +107,10 @@ button:nth-child(5) {
     color: rgb(2, 2, 2);
 }
 
+.botones button {
+    animation: none;
+}
+
 
 /*ANIMACION BINARIOS */
 .binario {
@@ -143,92 +136,236 @@ button:nth-child(5) {
     }
 }
 
-#flechaBajar {
-    width: 100px;
+/* Fase 3: pantalla de arranque del portfolio */
+.system-bar {
+    position: fixed;
+    top: 15px;
+    left: 32px;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0;
+    color: var(--color-font);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.system-bar small {
+    color: var(--color-muted);
+    font-size: 1rem;
+}
+
+.boot-log {
     position: absolute;
+    top: 105px;
+    left: 9%;
+    z-index: 3;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: clamp(0.65rem, 1.2vw, 0.95rem);
+    line-height: 1.8;
+}
+
+.boot-log .ok {
+    color: var(--color-font);
+}
+
+.texto {
+    position: absolute;
+    top: 46%;
     left: 50%;
-    bottom: 100px;
-    transform: translateX(-50%);
-    animation: bajar 1s 3s infinite ease-in-out;
-    cursor: url(../../../assets/hand.png), auto;
+    z-index: 2;
+    display: flex;
+    width: min(90%, 1100px);
+    flex-direction: column;
+    align-items: center;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border-right: 0;
+    animation: none;
+    font-size: clamp(5rem, 16vw, 16rem);
 }
 
-.divFlechaBajar {
-    width: min-content;
-    height: min-content;
+#welcome {
+    padding-left: 0;
+    color: var(--color-font);
+    text-shadow: var(--glow);
 }
 
-@keyframes bajar {
-    0% {
-        bottom: 100px;
+.hero-name,
+.hero-role {
+    margin-top: 10px;
+    color: var(--color-soft);
+    font-family: var(--font-body);
+    font-size: clamp(0.8rem, 2vw, 1.35rem);
+    letter-spacing: 0.12em;
+}
+
+.hero-name {
+    color: var(--color-font);
+    font-family: var(--font-display);
+    font-size: clamp(1.6rem, 4vw, 3rem);
+}
+
+.hero-actions {
+    display: flex;
+    gap: 16px;
+    margin-top: 30px;
+}
+
+.hero-actions button {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 10px 16px;
+    border: 1px solid var(--color-font);
+    border-radius: 0;
+    background: var(--panel);
+    color: var(--color-font);
+    font-family: var(--font-display);
+    font-size: clamp(1.1rem, 2vw, 1.7rem);
+    opacity: 1;
+}
+
+.hero-actions button:hover {
+    background: var(--color-font);
+    box-shadow: var(--glow);
+    color: var(--background-deep);
+}
+
+@media screen and (max-width: 600px) {
+    .system-bar {
+        top: 14px;
+        left: 12px;
+        font-size: 1.35rem;
     }
 
-    50% {
-        bottom: 50px;
+    .boot-log {
+        top: 82px;
+        left: 7%;
     }
 
-    100% {
-        bottom: 100px;
+    .hero-role {
+        max-width: 90%;
+        line-height: 1.5;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+        gap: 8px;
+        margin-top: 20px;
+    }
+
+    .hero-actions button {
+        padding: 7px 12px;
+    }
+
+}
+
+/* Entrada suave de las acciones después de terminar el texto. */
+@keyframes actionsIn {
+    from {
+        opacity: 0;
+        transform: translateY(14px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/*----------------------------------------------------------------------*/
-
-/*Media querys*/
-@media screen and (max-width: 1000px) {
-    .texto {
-        font-size: 12em;
-    }
+.hero-actions button {
+    animation: actionsIn 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-@media screen and (max-width: 1120px) {
-    .texto {
-        font-size: 11.5em;
-    }
+.hero-actions button:nth-child(2) {
+    animation-delay: 0.14s;
 }
 
-@media screen and (max-width: 870px) {
-    .texto {
-        font-size: 9em;
-    }
+/* Panel de configuración inspirado en controles de monitor CRT. */
+.control-panel {
+    top: 120px;
+    left: 32px;
+    padding: 10px;
+    border: 1px solid var(--secundario);
+    background: rgba(16, 20, 16, 0.9);
+    box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.35);
 }
 
-@media screen and (max-width: 720px) {
-    .texto {
-        font-size: 8em;
-    }
+.panel-title {
+    margin-bottom: 8px;
+    border-bottom: 1px solid var(--secundario);
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    letter-spacing: 0.08em;
 }
 
-@media screen and (max-width: 610px) {
-    .texto {
-        font-size: 7em;
-    }
+.color-controls,
+.font-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
-@media screen and (max-width: 570px) {
-    .texto {
-        font-size: 6em;
-    }
-
-    #welcome {
-        padding-left: 60px;
-    }
+.font-controls {
+    margin-top: 8px;
 }
 
-@media screen and (max-width: 460px) {
-    .texto {
-        font-size: 5em;
-    }
+.control-panel button {
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 3px 5px;
+    border: 1px solid var(--color-muted);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-soft);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    letter-spacing: 0.04em;
+    opacity: 1;
 }
 
-@media screen and (max-width: 380px) {
-    .texto {
-        font-size: 4em;
-    }
+.control-panel button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 2px 0 var(--color-font);
 }
 
-@media screen and (max-width: 300px) {
-    .texto {
-        font-size: 3em;
+.theme-button::before {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-right: 3px;
+    content: '';
+    border-radius: 50%;
+}
+
+.theme-red::before {
+    background: #fc0000;
+}
+
+.theme-blue::before {
+    background: #0004ff;
+}
+
+.theme-green::before {
+    background: var(--color-font);
+}
+
+.font-button {
+    flex: 1;
+}
+
+@media screen and (max-width: 600px) {
+    .control-panel {
+        top: 112px;
+        left: 12px;
+        width: 145px;
     }
 }

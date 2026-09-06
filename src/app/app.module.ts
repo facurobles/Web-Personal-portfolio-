@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './componentes/home/home.component';
-import { HeaderComponent } from './componentes/header/header.component';
 import { AboutMeComponent } from './componentes/about-me/about-me.component';
 import { FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { WhoAmIComponent } from './componentes/who-am-i/who-am-i.component';
@@ -23,7 +22,6 @@ import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-s
   declarations: [
     AppComponent,
     HomeComponent,
-    HeaderComponent,
     AboutMeComponent,
     WhoAmIComponent,
     Option2Component,

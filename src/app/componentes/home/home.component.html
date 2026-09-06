@@ -1,30 +1,49 @@
 <div class="container-fluid">
 
     <div class="banner">
-        <div class="botones">
-            <button (click)="rojo()" title="Rojo"></button>
-            <button (click)="azul()" title="Azul"></button>
-            <button (click)="verde()" title="Verde"></button>
-            <button (click)="agrandar()" title="+Tamaño"><i class="fa-solid fa-plus"></i></button>
-            <button (click)="reducir()" title="-Tamaño"><i class="fa-solid fa-minus"></i></button>
+        <div class="system-bar">
+            <span>FACU ROBLES OS <small>v2.0</small></span>
         </div>
-        <div>
-            <div class="binario" [ngStyle]="presentacion" *ngFor="let i of arrayElemento" [style.left.%]="i.left"
-                [style.animation-duration.s]="i.duration">
-                {{i.numero}}
+
+        <div class="botones control-panel" aria-label="Visual settings">
+            <div class="panel-title">CFG</div>
+            <div class="color-controls">
+                <button class="theme-button theme-red" (click)="rojo()" title="Red theme" aria-label="Red theme">RED</button>
+                <button class="theme-button theme-blue" (click)="azul()" title="Blue theme" aria-label="Blue theme">BLU</button>
+                <button class="theme-button theme-green" (click)="verde()" title="Green theme" aria-label="Green theme">GRN</button>
+            </div>
+            <div class="font-controls">
+                <button class="font-button" (click)="agrandar()" title="Increase text size" aria-label="Increase text size">A+</button>
+                <button class="font-button" (click)="reducir()" title="Decrease text size" aria-label="Decrease text size">A-</button>
             </div>
         </div>
 
-        <div class="texto">
-            <span id="welcome">WELCOME!!!</span>
+        <div class="boot-log" *ngIf="showBootLog">
+            <div id="bootLine1"></div>
+            <div>
+                <span id="bootLine2"></span><span *ngIf="loadingStarted"> {{loadingProgress}}%</span><span *ngIf="loadingComplete" class="ok"> OK</span>
+            </div>
         </div>
+
+        <div>
+            <ng-container *ngIf="showRain">
+                <div class="binario" [ngStyle]="presentacion" *ngFor="let i of arrayElemento" [style.left.%]="i.left"
+                    [style.animation-duration.s]="i.duration">
+                    {{i.numero}}
+                </div>
+            </ng-container>
+        </div>
+
+        <div class="texto">
+            <span id="welcome" *ngIf="showWelcome"></span>
+            <p class="hero-name" *ngIf="showWelcome"><span id="heroName"></span></p>
+            <p class="hero-role" *ngIf="showWelcome"><span id="heroRole"></span></p>
+            <div class="hero-actions" *ngIf="showActions">
+                <button type="button" (click)="scrollToSection('projects')">[ VIEW PROJECTS ]</button>
+                <button type="button" (click)="scrollToSection('contact')">[ CONTACT ME ]</button>
+            </div>
+        </div>
+
     </div>
-    
-    <div class="divFlechaBajar">
-        <img id="flechaBajar" (click)="scrollDown()" src="../../../assets/arrowDown.png" alt="">
-    </div>
-
-
-
 
 </div>

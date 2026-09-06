@@ -1,16 +1,109 @@
-*{
-    margin: 0%;
-    padding: 0%;
-    font-family: 'VT323', monospace;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=VT323&display=swap');
+
+:root {
+    --background: #101410;
+    --background-deep: #080b08;
+    --panel: #182018;
+    --panel-bright: #203420;
+    --color-font: #39ff14;
+    --color-soft: #c9f7bf;
+    --color-muted: #76a873;
+    --secundario: #116b16;
+    --accent-amber: #ffb000;
+    --font-body: 'IBM Plex Mono', Consolas, monospace;
+    --font-display: 'VT323', monospace;
+    --glow: 0 0 12px rgba(57, 255, 20, 0.42);
 }
 
-body{
-    --color-font: #00ff15;
-    --font-family: 'VT323', monospace;
-    --secundario: #006e00;
-    --background: #1a1a1a;
-    
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
+
+html {
+    scroll-behavior: smooth;
+    background: var(--background-deep);
+}
+
+body {
+    position: relative;
+    min-width: 320px;
+    background: var(--background);
+    color: var(--color-soft);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+}
+
+/* Textura CRT muy sutil: acompaña la estética sin tapar el contenido. */
+body::before {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+    pointer-events: none;
+    content: '';
+    opacity: 0.08;
+    background: repeating-linear-gradient(to bottom, transparent 0, transparent 2px, rgba(57, 255, 20, 0.12) 3px);
+}
+
+/* El encabezado del home no compite con la navegación desplegada. */
+.menu-open .system-bar {
+    visibility: hidden;
+    opacity: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+textarea {
+    font-family: var(--font-display);
+}
+
+a,
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+:focus-visible {
+    outline: 2px solid var(--accent-amber);
+    outline-offset: 4px;
+}
+
+::selection {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
 ::-webkit-scrollbar {
-    display: none;
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--background-deep);
+}
+
+::-webkit-scrollbar-thumb {
+    border: 2px solid var(--background-deep);
+    background: var(--secundario);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-font);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
 }

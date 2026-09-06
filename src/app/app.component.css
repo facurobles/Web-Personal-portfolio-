@@ -31,7 +31,7 @@
 
 .menu{
     height: 80px;
-    background: #009200a9;
+    background: color-mix(in srgb, var(--secundario) 78%, transparent);
     z-index: 10;
     position: relative;
 }
@@ -57,7 +57,7 @@
     height: min-content;
     transition:all 0.1s ease;
     font-family: 'VT323', monospace;
-    color: rgb(0, 255, 0);
+    color: var(--color-font);
     font-size: 45px;
     width: min-content;
 }
@@ -172,7 +172,7 @@
 
 @media screen and (max-width: 992px){
     .menu{
-        background: rgb(0, 146, 0);
+        background: var(--secundario);
         display: flex;
         width: min-content;
         height:min-content;
