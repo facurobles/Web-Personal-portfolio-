@@ -17,6 +17,7 @@ import { ContactComponent } from './componentes/contact/contact.component';
 import { EmailService } from './componentes/serviceEmail/email.service';
 import { NoOptionsComponent } from './componentes/no-options/no-options.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-shincal.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { FooterComponent } from './componentes/footer/footer.component';
     ProjectsComponent,
     ContactComponent,
     NoOptionsComponent,
-    FooterComponent
+    FooterComponent,
+    DetalleShincalComponent
   ],
   imports: [
     BrowserModule,

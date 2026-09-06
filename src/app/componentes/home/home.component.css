@@ -1,4 +1,4 @@
-.container-fluid{
+.container-fluid {
     margin: 0%;
     padding: 0%;
     height: 100vh;
@@ -7,36 +7,40 @@
 }
 
 @keyframes flech {
-    50%{bottom: 0;}
+    50% {
+        bottom: 0;
+    }
 }
 
 
 /*texto Welcome*/
-.texto{
+.texto {
     border-right: 4px solid;
     border-color: rgb(0, 255, 0);
     display: inline;
-    animation:blink 1s infinite step-end;
+    animation: blink 1s infinite step-end;
     font-size: 16em;
     float: left;
 }
 
-#welcome{
+#welcome {
     padding-left: 100px;
     width: 10ch;
     font-family: 'VT323', monospace;
-    color: rgb(30, 255, 0); 
+    color: rgb(30, 255, 0);
 }
 
 
 @keyframes blink {
-    50% {border-color: transparent;}
+    50% {
+        border-color: transparent;
+    }
 }
 
 
 
 /*Botones selectores de color*/
-.botones{
+.botones {
     display: flex;
     position: absolute;
     flex-direction: column;
@@ -49,12 +53,12 @@ button:focus {
 }
 
 
-i{
+i {
     font-size: 12px;
 }
 
 
-button{
+button {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -65,50 +69,58 @@ button{
     margin-top: 20px;
     border: none;
     transition-duration: .2s;
-    animation: botonesAnimation 1s 0s 6 ;
+    animation: botonesAnimation 1s 0s 6;
     border-radius: 100%;
     z-index: 5;
 }
+
 @keyframes botonesAnimation {
-    50%{
+    50% {
         transform: scale(1.5);
-        opacity: 100% ;
+        opacity: 100%;
     }
-    60%{
+
+    60% {
         transform: scale(1.5);
-        opacity: 100% ;
+        opacity: 100%;
     }
 }
 
 
-a, button{
-    cursor: url(../../../assets/hand.png), auto;    
+a,
+button {
+    cursor: url(../../../assets/hand.png), auto;
 }
-button:hover{
+
+button:hover {
     opacity: 100%;
 }
 
-button:nth-child(1){
+button:nth-child(1) {
     background: rgb(252, 0, 0);
 }
-button:nth-child(2){
+
+button:nth-child(2) {
     background: rgb(0, 4, 255);
 }
-button:nth-child(3){
+
+button:nth-child(3) {
     background: rgb(4, 255, 17);
 }
-button:nth-child(4){
+
+button:nth-child(4) {
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
 }
-button:nth-child(5){
+
+button:nth-child(5) {
     background: rgb(255, 255, 255);
     color: rgb(2, 2, 2);
 }
 
 
 /*ANIMACION BINARIOS */
-.binario{
+.binario {
     position: absolute;
     animation-name: binario;
     animation-timing-function: linear;
@@ -117,73 +129,106 @@ button:nth-child(5){
     font-size: var(--font-size);
     font-family: 'VT323', monospace;
     min-height: 10px;
-}   
+}
 
-@keyframes binario{
-    0%{
+@keyframes binario {
+    0% {
         bottom: 100%;
         text-shadow: 0px 0px 20px var(--color);
     }
 
-    100%{
+    100% {
         bottom: 0%;
         opacity: 0%;
-}}
+    }
+}
+
+#flechaBajar {
+    width: 100px;
+    position: absolute;
+    left: 50%;
+    bottom: 100px;
+    transform: translateX(-50%);
+    animation: bajar 1s 3s infinite ease-in-out;
+    cursor: url(../../../assets/hand.png), auto;
+}
+
+.divFlechaBajar {
+    width: min-content;
+    height: min-content;
+}
+
+@keyframes bajar {
+    0% {
+        bottom: 100px;
+    }
+
+    50% {
+        bottom: 50px;
+    }
+
+    100% {
+        bottom: 100px;
+    }
+}
 
 /*----------------------------------------------------------------------*/
 
 /*Media querys*/
-@media screen and (max-width: 1000px){
-    .texto{
+@media screen and (max-width: 1000px) {
+    .texto {
         font-size: 12em;
     }
 }
 
 @media screen and (max-width: 1120px) {
-    .texto{
+    .texto {
         font-size: 11.5em;
     }
 }
+
 @media screen and (max-width: 870px) {
-    .texto{
+    .texto {
         font-size: 9em;
     }
 }
+
 @media screen and (max-width: 720px) {
-    .texto{
+    .texto {
         font-size: 8em;
     }
 }
+
 @media screen and (max-width: 610px) {
-    .texto{
+    .texto {
         font-size: 7em;
     }
 }
 
 @media screen and (max-width: 570px) {
-    .texto{
+    .texto {
         font-size: 6em;
     }
-    #welcome{
+
+    #welcome {
         padding-left: 60px;
     }
 }
 
 @media screen and (max-width: 460px) {
-    .texto{
+    .texto {
         font-size: 5em;
-    }  
+    }
 }
+
 @media screen and (max-width: 380px) {
-    .texto{
+    .texto {
         font-size: 4em;
-    } 
+    }
 }
+
 @media screen and (max-width: 300px) {
-    .texto{
+    .texto {
         font-size: 3em;
-    } 
+    }
 }
-
-
-

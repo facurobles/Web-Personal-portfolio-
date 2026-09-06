@@ -7,6 +7,14 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
 
+  /*bakar haciendo click en la flecha*/
+  scrollDown(): void {
+    window.scrollBy({
+      top: window.innerHeight,
+      behavior: 'smooth'
+    });
+  }
+
   /*------------efec maquina de escribir welcome----------*/
   maquinaEscribir(){
     const escrito = document.getElementById("welcome");

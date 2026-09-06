@@ -7,9 +7,10 @@ a, button{
     cursor: url(../../../assets/hand.png), auto;    
 }
 
-.container-fluid{
+.todo{
     background: #1a1a1a;
     height: 10vh;
+    z-index: 20;
 }
 
 

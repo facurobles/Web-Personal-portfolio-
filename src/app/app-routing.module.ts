@@ -6,6 +6,7 @@ import { Option2Component } from './componentes/option2/option2.component';
 import { Option3Component } from './componentes/option3/option3.component';
 import { NoOptionsComponent } from './componentes/no-options/no-options.component';
 import { ContactComponent } from './componentes/contact/contact.component';
+import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-shincal.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'noOptions', pathMatch: 'full'},
