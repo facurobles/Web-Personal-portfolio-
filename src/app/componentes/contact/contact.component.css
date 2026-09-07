@@ -1,109 +1,147 @@
-*{
-    padding: 0%;
-    margin: 0%;
+.contact-section {
+    padding: 34px 1.5% 70px;
+    background: var(--background);
+    color: var(--color-soft);
 }
 
-.container-fluid {
-    height: min-content;
-    margin-bottom: 10%;
+.contact-window {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+    border: 1px solid var(--secundario);
+}
+
+.contact-header,
+.footer-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--panel);
     color: var(--color-font);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
 }
 
-#contenedor {
-    border: 2px solid var(--color-font);
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 10px;
-    padding: 5px;
+.contact-header span:last-child,
+.footer-header span:last-child {
+    color: var(--color-muted);
 }
 
-form{
-    width: 100%;
+.contact-content {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 34px;
+    padding: 30px;
 }
 
-
-.contContac {
-    height: min-content;
+.terminal-line {
+    margin-bottom: 12px;
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
 }
 
-#contactame {
-    font-size: 4em;
-    width: 100%;
-    background: var(--secundario);
+.contact-intro h1 {
+    margin-bottom: 14px;
     color: var(--color-font);
+    font-size: clamp(1.8rem, 4vw, 3rem);
+    line-height: 1;
+}
+
+.contact-intro p:last-child {
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    line-height: 1.6;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-field label {
+    margin-bottom: 5px;
+    color: var(--color-font);
+    font-family: var(--font-body);
+    font-size: 0.68rem;
+    letter-spacing: 0.1em;
 }
 
 input,
 textarea {
-    font-family: 'VT323', monospace;
-    color: var(--color-font);
-    background: none;
-    border-color: var(--color-font);
-    border-radius: 10px;
-    display: inline;
-    width: 70%;
-    font-size: 2em;
-}
-
-
-textarea:hover {
-    background: rgb(44, 44, 44);
-    color: var(--color-font);
-    outline: none !important;
-    outline-width: 0 !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-input:hover{
-    background: rgb(44, 44, 44);
-    color: var(--color-font);
-    outline: none !important;
-    outline-width: 0 !important;
-    box-shadow: none;
-    -moz-box-shadow: none;
-    -webkit-box-shadow: none;
-}
-
-label {
-    float: left;
-    width: 20%;
-    text-align: right;
-}
-
-.alert{
-    width: 70%;
-    margin-left: 20%;
-}
-
-button {
-    margin-left: 48%;
-    background: var(--secundario);
-    color: var(--color-font);
-    border: none;
-    width: min-content;
-    font-size: 1em;
+    width: 100%;
+    padding: 9px 10px;
+    border: 1px solid var(--secundario);
+    border-radius: 0;
     outline: none;
+    background: var(--background-deep);
+    color: var(--color-soft);
+    font-family: var(--font-body);
+    font-size: 0.85rem;
 }
 
-button:hover {
-    background: #059900;
-    box-shadow: 0px 0px 10px var(--color-font);
-    transform: scale(1.1);
+textarea {
+    min-height: 125px;
+    resize: vertical;
 }
 
-@media screen and (max-width: 425px){
-    .alert{
-        margin-left: 0%;
+input::placeholder,
+textarea::placeholder {
+    color: var(--color-muted);
+    opacity: 0.7;
+}
+
+input:focus,
+textarea:focus {
+    border-color: var(--color-font);
+    box-shadow: 0 0 12px rgba(57, 255, 20, 0.12);
+}
+
+.form-error {
+    margin-top: 5px;
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+}
+
+form > button {
+    align-self: flex-start;
+    padding: 9px 12px;
+    border: 1px solid var(--color-font);
+    background: var(--panel);
+    color: var(--color-font);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+}
+
+form > button:hover:not(:disabled) {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
+form > button:disabled {
+    border-color: var(--secundario);
+    color: var(--color-muted);
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+@media screen and (max-width: 700px) {
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 20px;
     }
-    button{
-        margin-left: 40%;
-    }
-    .form-outline{
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+
+    .contact-header span:last-child {
+        display: none;
     }
 }

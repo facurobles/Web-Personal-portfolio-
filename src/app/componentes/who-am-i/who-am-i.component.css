@@ -1,0 +1,29 @@
+.container {
+    height: 100%;
+}
+
+.profile-copy {
+    padding: 12px 4px;
+    color: var(--color-soft);
+}
+
+.profile-copy h2 {
+    margin-bottom: 18px;
+    color: var(--color-font);
+    font-size: clamp(1.25rem, 2.4vw, 1.9rem);
+    line-height: 1.25;
+}
+
+.profile-copy p {
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+    font-size: clamp(0.82rem, 1.4vw, 1rem);
+    line-height: 1.65;
+}
+
+.profile-copy .profile-kicker {
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+}

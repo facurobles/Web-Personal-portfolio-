@@ -137,28 +137,6 @@ button:nth-child(5) {
 }
 
 /* Fase 3: pantalla de arranque del portfolio */
-.system-bar {
-    position: fixed;
-    top: 15px;
-    left: 32px;
-    z-index: 3;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0;
-    color: var(--color-font);
-    font-family: var(--font-display);
-    font-size: 1.7rem;
-    letter-spacing: 0.08em;
-    line-height: 1;
-    transition: opacity 0.25s ease, visibility 0.25s ease;
-}
-
-.system-bar small {
-    color: var(--color-muted);
-    font-size: 1rem;
-}
-
 .boot-log {
     position: absolute;
     top: 105px;
@@ -238,12 +216,6 @@ button:nth-child(5) {
 }
 
 @media screen and (max-width: 600px) {
-    .system-bar {
-        top: 14px;
-        left: 12px;
-        font-size: 1.35rem;
-    }
-
     .boot-log {
         top: 82px;
         left: 7%;
@@ -366,6 +338,97 @@ button:nth-child(5) {
     .control-panel {
         top: 112px;
         left: 12px;
-        width: 145px;
+    }
+}
+
+/* Lluvia de datos: cada columna tiene una cara binaria y otra de skills. */
+.binario {
+    top: -45%;
+    bottom: auto;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    line-height: 0.82;
+    animation-name: streamFall;
+    animation-duration: 5s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    z-index: 1;
+    color: var(--color-binary);
+    opacity: 0.25;
+    text-shadow: none;
+    transition: margin-left 0.2s ease-out;
+}
+
+.stream-flip {
+    position: relative;
+    display: grid;
+    transform-style: preserve-3d;
+    transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.stream-flip.revealed {
+    transform: rotateY(180deg);
+}
+
+.stream-face {
+    grid-area: 1 / 1;
+    backface-visibility: hidden;
+    white-space: nowrap;
+}
+
+.stream-binary {
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    line-height: 0.82;
+}
+
+.stream-skill {
+    transform: rotateY(180deg);
+    color: var(--accent-amber);
+    font-family: var(--font-display);
+    font-size: inherit;
+    letter-spacing: 0.08em;
+    text-shadow: 0 0 8px var(--accent-amber);
+}
+
+@keyframes streamFall {
+    0% {
+        opacity: 0;
+        transform: translateY(0);
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    88% {
+        opacity: 0.8;
+    }
+
+    100% {
+        opacity: 0;
+        transform: translateY(145vh);
+    }
+}
+
+/* Flash breve de sistema al completar el arranque. */
+.glitch-active .texto {
+    animation: screenGlitch 0.18s steps(2, end) 4;
+}
+
+@keyframes screenGlitch {
+    0%, 100% {
+        transform: translate(-50%, -50%);
+        filter: none;
+    }
+
+    25% {
+        transform: translate(calc(-50% + 5px), -50%);
+        filter: hue-rotate(70deg);
+    }
+
+    50% {
+        transform: translate(calc(-50% - 4px), -50%);
+        filter: contrast(1.7);
     }
 }

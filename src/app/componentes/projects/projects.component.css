@@ -1,155 +1,180 @@
-* {
-    margin: 0%;
-    padding: 0%;
-}
-
-.container-fluid {
+.projects-section {
     min-height: 100vh;
+    padding: 34px 1.5% 80px;
     background: var(--background);
     color: var(--color-soft);
-    margin-bottom: 50px;
-    position: relative;
 }
 
-.rowTitulo {
+.projects-window {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+}
+
+.projects-header,
+.detail-header {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--panel);
-}
-
-.titulo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: min-content;
-    background: var(--panel);
-    color: var(--color-font);
-    font-size: 64px;
-    width: 97%;
-}
-
-.divProyecto {
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 10px;
-}
-
-.proyecto {
+    justify-content: space-between;
+    padding: 10px 14px;
     border: 1px solid var(--secundario);
-    box-shadow: inset 0 0 0 1px rgba(57, 255, 20, 0.08);
-}
-
-.contenido {
-    position: relative;
-    overflow: hidden;
-    height: 320px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--color-font);
-}
-
-.carrousel {
-    width: 100%;
-    position: absolute;
-    top: 100%;
-    left: 0;
-    transition: all 0.3s ease;
-}
-
-.rowTituloProyecto {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: min-content;
     background: var(--panel);
     color: var(--color-font);
-    font-size: 40px;
+    font-family: var(--font-body);
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
 }
 
-.descripcion {
-    padding: 3px;
+.projects-header span:last-child {
+    color: var(--color-muted);
 }
 
-p {
-    font-size: 30px;
+.projects-intro {
+    padding: 18px 14px 10px;
+    border: 1px solid var(--secundario);
+    border-top: 0;
 }
 
-.contenido:hover .carrousel {
-    top: 0;
+.terminal-line {
+    margin-bottom: 8px;
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.72rem;
 }
 
-a{
-    cursor: url(../../../assets/hand.png), auto;    
+.projects-summary {
+    max-width: 760px;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.5;
 }
 
-
-@media screen and (max-width: 992px) {
-    .contenido {
-        position: relative;
-        overflow:auto;
-        height: min-content;
-    }
-    .carrousel {
-        width: 100%;
-        position: static;
-    }
+.project-filters {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    padding: 14px 0;
 }
 
-.coso{
-display:flex;
-justify-content: right;
-flex-direction: column !important;
-background: #ffffff;
-background: #ff816e;
+.project-filters button {
+    padding: 7px 10px;
+    border: 1px solid var(--secundario);
+    background: var(--panel);
+    color: var(--color-muted);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.65rem;
 }
 
-.verDetalleShincal{
-    height: min-content;
-    width: min-content;
+.project-filters button:hover,
+.project-filters .active-filter {
+    border-color: var(--color-font);
     background: var(--color-font);
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    white-space: nowrap;
-    padding: 15px;
-    font-size: 30px;
-    font-weight: bold;
-    transition-duration: 0.2s;
+    color: var(--background-deep);
 }
 
-.verDetalleShincal:hover{
-    background: var(--secundario);
+.projects-grid {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
 }
 
-#detalleShincal{
-    height: 100vh;
-    width: 100vw;
-    background: rgba(0, 0, 0, 0.856);
+app-project-card {
+    display: block;
+    min-width: 0;
+    height: 100%;
+}
+
+.project-modal {
     position: fixed;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    z-index: 500;
+    z-index: 600;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.84);
 }
 
-#buttonCerrar{
-    height: min-content;
-    width: min-content;
+.detail-window {
+    width: min(680px, 100%);
+    border: 1px solid var(--color-font);
+    background: var(--background);
+    box-shadow: 0 0 24px rgba(57, 255, 20, 0.18);
 }
 
-#imgButtonCerrar{
-    height: 50px;
-    width: 50px;
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    z-index: 501;
+.detail-header {
+    border: 0;
+    border-bottom: 1px solid var(--secundario);
 }
 
-#imgButtonCerrar:hover{
-    transform: scale(1.2);
-    cursor: url(../../../assets/hand.png), auto;    
+.detail-header button {
+    border: 0;
+    background: transparent;
+    color: var(--color-font);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+}
+
+.detail-content {
+    padding: 22px;
+}
+
+.detail-label {
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+}
+
+.detail-content h2 {
+    margin: 8px 0 16px;
+    color: var(--color-font);
+    font-size: clamp(1.7rem, 4vw, 2.6rem);
+}
+
+.detail-content p {
+    margin-bottom: 16px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.6;
+}
+
+.detail-content strong {
+    color: var(--color-font);
+    font-size: 0.68rem;
+}
+
+.detail-stack {
+    color: var(--color-muted);
+}
+
+.detail-content a {
+    display: inline-block;
+    padding: 8px 10px;
+    border: 1px solid var(--color-font);
+    color: var(--color-font);
+    font-family: var(--font-display);
+    font-size: 1.1rem;
+    text-decoration: none;
+}
+
+.detail-content a:hover {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
+@media screen and (max-width: 700px) {
+    .projects-section {
+        padding-top: 24px;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
 }

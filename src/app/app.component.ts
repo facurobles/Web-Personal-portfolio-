@@ -1,4 +1,6 @@
-import { Component, ElementRef} from '@angular/core';
+import { Component, ElementRef } from '@angular/core';
+import { NavigationEnd, Router } from '@angular/router';
+import { filter, take } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -14,7 +16,23 @@ export class AppComponent {
     this.bandera = !this.bandera;
   }
 /*---------------scrollear-------------*/
-  constructor(private elementRef: ElementRef) { }
+  constructor(private elementRef: ElementRef, private router: Router) {
+    const navigation = performance.getEntriesByType('navigation')[0] as PerformanceNavigationTiming | undefined;
+    const isReload = navigation?.type === 'reload';
+
+    if (isReload) {
+      this.router.events
+        .pipe(
+          filter(event => event instanceof NavigationEnd),
+          take(1)
+        )
+        .subscribe(() => {
+          if (this.router.url !== '/noOptions') {
+            this.router.navigateByUrl('/noOptions', { replaceUrl: true });
+          }
+        });
+    }
+  }
 
   scrollToElement(elementId: string): void {
     const element = this.elementRef.nativeElement.querySelector(`#${elementId}`);

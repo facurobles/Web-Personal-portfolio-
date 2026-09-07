@@ -1,0 +1,42 @@
+<article class="project-card" [class.featured-card]="project.featured">
+    <div class="card-topline">
+        <span>{{project.id}}</span>
+        <span>{{project.status}}</span>
+    </div>
+
+    <div class="project-preview" [attr.aria-label]="project.title + ' screenshots'">
+        <ng-container *ngIf="projectImages.length; else noPreview">
+            <img [src]="projectImages[currentSlide]" [alt]="project.title + ' screenshot ' + (currentSlide + 1)" loading="lazy">
+
+            <button *ngIf="projectImages.length > 1" class="carousel-control carousel-prev" type="button"
+                (click)="previousSlide()" aria-label="Previous screenshot">‹</button>
+            <button *ngIf="projectImages.length > 1" class="carousel-control carousel-next" type="button"
+                (click)="nextSlide()" aria-label="Next screenshot">›</button>
+
+            <div *ngIf="projectImages.length > 1" class="carousel-indicators" aria-label="Select screenshot">
+                <button *ngFor="let image of projectImages; let index = index" type="button"
+                    [class.active-slide]="currentSlide === index" (click)="selectSlide(index)"
+                    [attr.aria-label]="'Show screenshot ' + (index + 1)"></button>
+            </div>
+        </ng-container>
+        <ng-template #noPreview>
+            <div class="preview-placeholder">
+            <span>&gt; VISUAL_PREVIEW.UNAVAILABLE</span>
+            <strong>{{project.type}}</strong>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="project-content">
+        <div class="project-label" *ngIf="project.featured">FEATURED · JAVA / SPRING BOOT</div>
+        <h2>{{project.title}}</h2>
+        <p class="project-type">{{project.type}} · {{project.role}}</p>
+        <p class="project-description">{{project.description}}</p>
+        <div class="project-stack">{{project.technologies.join(' · ')}}</div>
+        <div class="card-actions">
+            <button type="button" (click)="details.emit(project)">VIEW DETAILS</button>
+            <a *ngIf="project.demoUrl" [href]="project.demoUrl" target="_blank" rel="noopener noreferrer">OPEN APP</a>
+            <span *ngIf="!project.demoUrl" class="no-demo">NO PUBLIC DEMO</span>
+        </div>
+    </div>
+</article>

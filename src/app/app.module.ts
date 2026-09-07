@@ -17,6 +17,8 @@ import { EmailService } from './componentes/serviceEmail/email.service';
 import { NoOptionsComponent } from './componentes/no-options/no-options.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-shincal.component';
+import { ExperienceComponent } from './componentes/experience/experience.component';
+import { ProjectCardComponent } from './componentes/projects/project-card.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-s
     ContactComponent,
     NoOptionsComponent,
     FooterComponent,
-    DetalleShincalComponent
+    DetalleShincalComponent,
+    ExperienceComponent,
+    ProjectCardComponent
   ],
   imports: [
     BrowserModule,

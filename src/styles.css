@@ -6,12 +6,43 @@
     --panel: #182018;
     --panel-bright: #203420;
     --color-font: #39ff14;
+    --color-binary: #9bff8984;
+    --color-soft: #c9f7bf;
+    --color-muted: #76a873;
+    --secundario: #116b16;
+    --accent-amber: #ffae007e;
+    --font-body: 'IBM Plex Mono', Consolas, monospace;
+    --font-display: 'VT323', monospace;
+    --glow: 0 0 12px rgba(57, 255, 20, 0.42);
+}
+
+body.theme-red {
+    --color-font: #ff443a7b;
+    --color-binary: #ffaaa476;
+    --color-soft: #ffd6d2;
+    --color-muted: #b56d68;
+    --secundario: #781d1a;
+    --accent-amber: #ff9f0a;
+    --glow: 0 0 12px rgba(255, 69, 58, 0.5);
+}
+
+body.theme-blue {
+    --color-font: #3d9bff79;
+    --color-binary: #a8d4ff81;
+    --color-soft: #d2e8ff;
+    --color-muted: #7199bd;
+    --secundario: #164879;
+    --accent-amber: #8bd3ff;
+    --glow: 0 0 12px rgba(61, 155, 255, 0.5);
+}
+
+body.theme-green {
+    --color-font: #37ff1477;
+    --color-binary: #9bff8981;
     --color-soft: #c9f7bf;
     --color-muted: #76a873;
     --secundario: #116b16;
     --accent-amber: #ffb000;
-    --font-body: 'IBM Plex Mono', Consolas, monospace;
-    --font-display: 'VT323', monospace;
     --glow: 0 0 12px rgba(57, 255, 20, 0.42);
 }
 

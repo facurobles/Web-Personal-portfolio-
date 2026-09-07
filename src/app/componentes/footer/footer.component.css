@@ -1,45 +1,83 @@
-*{
-    margin: 0%;
-    padding: 0%;
-}
-
-.container-fluid{
-    height: min-content;
+.footer-section {
+    position: relative;
+    padding: 0 1.5% 28px;
     background: var(--background);
+    color: var(--color-soft);
+}
+
+.footer-window {
+    width: 100%;
+    margin: 0 auto;
+    border: 1px solid var(--secundario);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 24px;
+}
+
+.footer-block h2 {
+    margin-bottom: 12px;
     color: var(--color-font);
-    border-top: 1px solid var(--secundario);
-    padding: 10px;
+    font-size: 1.35rem;
 }
 
-.item{
-    padding-top: 20px;
+.footer-block p {
+    margin-bottom: 6px;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
 }
 
-i{
-    font-size: 2em;
-    margin-right: 6%;
+.social-links {
+    display: flex;
+    gap: 18px;
+}
+
+.social-links a {
     color: var(--color-font);
-    transition-duration: 0.2s;
+    font-size: 1.3rem;
+    transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
-i:hover{
-    transform: scale(1.2);
-    text-shadow: 0px 0px 10px var(--color-font);
+.social-links a:hover {
+    transform: translateY(-2px);
+    text-shadow: var(--glow);
 }
 
-a{
-    cursor: url(../../../assets/hand.png), auto;    
+.copyright {
+    margin-top: 16px;
+    font-size: 0.58rem !important;
 }
 
-
-#flechaUp{
+.back-to-top {
     position: fixed;
-    bottom: 30px;
-    right: 15px;
-    height: 30px;
-    width: 30px;
-    transition-duration: 0.2s;
+    right: 18px;
+    bottom: 18px;
+    z-index: 10;
+    display: grid;
+    width: 34px;
+    height: 34px;
+    place-items: center;
+    border: 1px solid var(--color-font);
+    background: var(--panel);
+    color: var(--color-font);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
 }
-#flechaUp:hover{
-    transform: scale(1.2);
+
+.back-to-top:hover {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
+@media screen and (max-width: 700px) {
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding: 18px;
+    }
 }

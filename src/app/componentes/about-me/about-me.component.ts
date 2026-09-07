@@ -11,8 +11,7 @@ export class AboutMeComponent {
 
   /*desactiva el input al press inter y activa las lineas siguientes*/
   func1 (){
-    document.getElementById("name")!.style.display="none";   
-    document.getElementById("nameButton")!.style.display="none";   
+    document.getElementById("nameEntry")!.style.display="none";
     document.getElementById("wname")!.style.display="none";   
     this.imprimirAllOptions();
   }
@@ -39,7 +38,8 @@ export class AboutMeComponent {
       await this.imprimirOption("choose");
       await this.imprimirOption("option1");
       await this.imprimirOption("option2");
-      this.imprimirOption("option3")
+      await this.imprimirOption("option3");
+      this.imprimirOption("option4")
     }
   
 

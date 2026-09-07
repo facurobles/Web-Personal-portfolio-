@@ -1,0 +1,80 @@
+.experience-log {
+    padding: 2px;
+    color: var(--color-soft);
+}
+
+.experience-intro {
+    margin-bottom: 18px;
+    color: var(--accent-amber);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    letter-spacing: 0.08em;
+}
+
+.experience-item {
+    margin-bottom: 14px;
+    padding: 12px;
+    border-left: 2px solid var(--secundario);
+    background: rgba(24, 32, 24, 0.55);
+}
+
+.experience-item:hover,
+.featured-experience {
+    border-left-color: var(--color-font);
+}
+
+.experience-heading {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.experience-heading h2 {
+    color: var(--color-font);
+    font-size: clamp(1.2rem, 2.3vw, 1.7rem);
+}
+
+.experience-heading span {
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.62rem;
+    white-space: nowrap;
+}
+
+.experience-item h3 {
+    margin: 3px 0 9px;
+    color: var(--color-soft);
+    font-size: 1.25rem;
+}
+
+.experience-item p {
+    margin-bottom: 9px;
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    line-height: 1.5;
+}
+
+.experience-stack,
+.experience-target {
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 0.65rem;
+    line-height: 1.5;
+}
+
+.experience-target {
+    margin-top: 9px;
+    color: var(--accent-amber);
+}
+
+@media screen and (max-width: 576px) {
+    .experience-heading {
+        display: block;
+    }
+
+    .experience-heading span {
+        display: block;
+        margin-top: 3px;
+    }
+}

@@ -7,6 +7,7 @@ import { Option3Component } from './componentes/option3/option3.component';
 import { NoOptionsComponent } from './componentes/no-options/no-options.component';
 import { ContactComponent } from './componentes/contact/contact.component';
 import { DetalleShincalComponent } from './componentes/detalle-shincal/detalle-shincal.component';
+import { ExperienceComponent } from './componentes/experience/experience.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'noOptions', pathMatch: 'full'},
@@ -14,6 +15,7 @@ const routes: Routes = [
   {path: 'whoAmI', component: WhoAmIComponent},
   {path: 'option2', component: Option2Component},
   {path: 'option3', component: Option3Component},
+  {path: 'experience', component: ExperienceComponent},
   {path: 'noOptions', component: NoOptionsComponent},
   {path: 'contact', component: ContactComponent},
 

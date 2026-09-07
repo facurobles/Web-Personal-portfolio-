@@ -112,3 +112,177 @@ button{
 
 }
 
+/* Fase 5: About como archivo abierto en una terminal. */
+.about-window {
+    width: min(1280px, 97%);
+    margin: 64px auto 0;
+    padding-top: 24px;
+}
+
+.about-header,
+.output-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 9px 14px;
+    border: 1px solid var(--secundario);
+    background: var(--panel);
+    color: var(--color-font);
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+}
+
+.output-header span {
+    color: var(--color-muted);
+}
+
+.marco {
+    min-height: 560px;
+    margin: 0;
+    padding: 24px;
+    border: 1px solid var(--secundario);
+    border-top: 0;
+    background: rgba(24, 32, 24, 0.28);
+}
+
+.identity-prompt {
+    min-height: 0;
+    margin-bottom: 18px;
+}
+
+#wname {
+    display: block;
+    margin-bottom: 10px;
+    color: var(--color-font);
+    font-size: clamp(1.5rem, 3vw, 2.4rem);
+}
+
+.name-entry {
+    display: flex;
+    align-items: center;
+    width: min(100%, 440px);
+    gap: 5px;
+}
+
+.prompt-symbol {
+    color: var(--accent-amber);
+    font-family: var(--font-display);
+    font-size: 1.4rem;
+}
+
+#name {
+    flex: 1;
+    width: auto;
+    min-width: 0;
+    padding: 4px 8px;
+    border: 1px solid var(--color-muted);
+    border-radius: 0;
+    color: var(--color-soft);
+    font-size: 1.2rem;
+}
+
+#name:focus {
+    border-color: var(--color-font);
+    box-shadow: 0 0 10px rgba(57, 255, 20, 0.18);
+    outline: none;
+}
+
+#nameButton {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 5px 8px;
+    border: 1px solid var(--color-font);
+    border-radius: 0;
+    background: transparent;
+    color: var(--color-font);
+    animation: none;
+}
+
+#nameButton:hover {
+    background: var(--color-font);
+    color: var(--background-deep);
+    transform: none;
+}
+
+#contTexto {
+    margin-top: 34px;
+    color: var(--color-soft);
+}
+
+#contTexto h1 {
+    margin-bottom: 8px;
+    color: var(--color-soft);
+    font-size: clamp(1.15rem, 2.2vw, 1.8rem);
+    line-height: 1.25;
+}
+
+#contOptions {
+    margin-top: 28px;
+}
+
+#contOptions a {
+    display: block;
+    width: fit-content;
+    margin-bottom: 8px;
+}
+
+#contOptions h1 {
+    margin: 0;
+    padding: 4px 8px;
+    font-size: clamp(1.2rem, 2.4vw, 1.9rem);
+}
+
+#contOptions h1:hover {
+    background: var(--panel-bright);
+}
+
+.output-window {
+    height: 100%;
+    min-height: 400px;
+    border: 1px solid var(--secundario);
+    background: var(--background-deep);
+}
+
+.output-header {
+    border: 0;
+    border-bottom: 1px solid var(--secundario);
+}
+
+#optionView {
+    height: calc(100% - 37px);
+    padding: 16px;
+}
+
+@media screen and (max-width: 992px) {
+    .about-window {
+        width: 97%;
+    }
+
+    .marco {
+        padding: 14px;
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .about-window {
+        margin-top: 30px;
+        padding-top: 10px;
+    }
+
+    .marco {
+        min-height: 0;
+        padding: 10px;
+    }
+
+    .header-status {
+        display: none;
+    }
+
+    .output-window {
+        min-height: 360px;
+        margin-top: 22px;
+    }
+}
+

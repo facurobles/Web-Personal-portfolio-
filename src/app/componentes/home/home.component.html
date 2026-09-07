@@ -1,10 +1,6 @@
-<div class="container-fluid">
+<div class="container-fluid" [class.glitch-active]="glitchActive" (pointermove)="reactToPointer($event)" (pointerleave)="clearRevealed()">
 
     <div class="banner">
-        <div class="system-bar">
-            <span>FACU ROBLES OS <small>v2.0</small></span>
-        </div>
-
         <div class="botones control-panel" aria-label="Visual settings">
             <div class="panel-title">CFG</div>
             <div class="color-controls">
@@ -28,8 +24,12 @@
         <div>
             <ng-container *ngIf="showRain">
                 <div class="binario" [ngStyle]="presentacion" *ngFor="let i of arrayElemento" [style.left.%]="i.left"
-                    [style.animation-duration.s]="i.duration">
-                    {{i.numero}}
+                    [style.animation-duration.s]="i.duration" [style.animation-delay.s]="i.delay"
+                    [style.margin-left.px]="i.shift">
+                    <div class="stream-flip" [class.revealed]="i.revealed">
+                        <span class="stream-face stream-binary">{{i.head}}{{i.tail}}</span>
+                        <span class="stream-face stream-skill">{{i.skill}}</span>
+                    </div>
                 </div>
             </ng-container>
         </div>

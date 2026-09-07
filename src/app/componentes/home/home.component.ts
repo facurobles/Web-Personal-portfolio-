@@ -11,6 +11,12 @@ export class HomeComponent {
   showWelcome = false;
   showRain = false;
   showActions = false;
+  glitchActive = false;
+  skills = [
+    'HTML', 'CSS', 'TypeScript', 'ANGULAR', 'React', 'VSC',
+    'Java', 'JPA', 'Spring Boot', 'Python', 'Small Talk', 'Net Beans',
+    'MySQL', 'JWT', 'GitHub', 'Postman', 'UML', 'POO', 'SCRUM', 'Trello', 'English'
+  ];
   loadingStarted = false;
   loadingComplete = false;
   loadingProgress = 0;
@@ -32,6 +38,8 @@ export class HomeComponent {
             this.loadingComplete = true;
             this.showBootLog = false;
             this.showRain = true;
+            this.glitchActive = true;
+            setTimeout(() => this.glitchActive = false, 900);
             setTimeout(() => {
               this.showWelcome = true;
               setTimeout(() => this.typeHeroText(), 0);
@@ -72,15 +80,18 @@ export class HomeComponent {
   }
   
   /*------------arreglo de binarios------------*/ 
-  arrayElemento: {numero: number, duration: number, left: number}[] = [];
+  arrayElemento: {head: number, tail: string, duration: number, delay: number, left: number, shift: number, skill: string, revealed: boolean}[] = [];
   leftAcumulado: number = 0;
 
   genRandom(){
     for (let i=0; i<39; i++){
-      const numero = Math.round(Math.random());
-      const duration = 2 + parseFloat((Math.random().toFixed(1)));
+      const head = Math.round(Math.random());
+      const skill = this.skills[i % this.skills.length];
+      const tail = Array.from({ length: Math.max(0, skill.length - 1) }, () => Math.round(Math.random())).join('');
+      const duration = 3 + parseFloat((Math.random() * 3).toFixed(1));
+      const delay = -(Math.random() * duration);
       const left = this.leftAcumulado;
-      this.arrayElemento.push({numero, duration, left});
+      this.arrayElemento.push({head, tail, duration, delay, left, shift: 0, skill, revealed: false});
 
       this.leftAcumulado = this.leftAcumulado + 2.5;
     }
@@ -109,16 +120,36 @@ export class HomeComponent {
   color = "rgb(4, 255, 17)";
 
   rojo(){
-    this.color="rgb(252, 0, 0)";
-    this.presentacion["--color"]=this.color;
+    this.setTheme('theme-red');
   }
   azul(){
-    this.color="rgb(0, 4, 255)";
-    this.presentacion["--color"]=this.color;
+    this.setTheme('theme-blue');
   }
   verde(){
-    this.color="rgb(4, 255, 17)";
-    this.presentacion["--color"]=this.color;
+    this.setTheme('theme-green');
+  }
+
+  private setTheme(theme: string): void {
+    document.body.classList.remove('theme-red', 'theme-blue', 'theme-green');
+    document.body.classList.add(theme);
+    this.color = 'var(--color-font)';
+    this.presentacion["--color"] = this.color;
+  }
+
+  reactToPointer(event: PointerEvent): void {
+    const pointer = (event.clientX / window.innerWidth) * 100;
+    this.arrayElemento.forEach(stream => {
+      const distance = pointer - stream.left;
+      stream.shift = Math.max(-14, Math.min(14, distance * -0.18));
+      stream.revealed = Math.abs(distance) < 4.5;
+    });
+  }
+
+  clearRevealed(): void {
+    this.arrayElemento.forEach(stream => {
+      stream.revealed = false;
+      stream.shift = 0;
+    });
   }
 
   /*stylo*/

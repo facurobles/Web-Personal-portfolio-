@@ -1,44 +1,39 @@
-<div class="container-fluid" >
-    <div class="row text-center contContac">
-        <h1 id="contactame">Contact me</h1>
+<section class="contact-section" aria-labelledby="contact-title">
+    <div class="contact-window">
+        <div class="contact-header">
+            <span id="contact-title">05_CONTACT</span>
+        </div>
+
+        <div class="contact-content">
+            <div class="contact-intro">
+                <p class="terminal-line">&gt; OPEN_CONNECTION()</p>
+                <h1>Let's build something useful.</h1>
+                <p>Have a Java project, a backend challenge or an opportunity to share? Send me a message and I’ll get back to you.</p>
+            </div>
+
+            <form (ngSubmit)="onSubmit()" [formGroup]="contactForm">
+                <div class="form-field">
+                    <label for="contact-name">NAME</label>
+                    <input id="contact-name" type="text" required formControlName="name" placeholder="your name">
+                    <div class="form-error" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']">&gt; name is required</div>
+                    <div class="form-error" *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']">&gt; use at least 3 characters</div>
+                </div>
+
+                <div class="form-field">
+                    <label for="contact-email">EMAIL</label>
+                    <input id="contact-email" type="email" required formControlName="email" placeholder="you@example.com">
+                    <div class="form-error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']">&gt; email is required</div>
+                    <div class="form-error" *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']">&gt; enter a valid email</div>
+                </div>
+
+                <div class="form-field">
+                    <label for="contact-message">MESSAGE</label>
+                    <textarea id="contact-message" maxlength="400" required formControlName="message" placeholder="write your message..."></textarea>
+                    <div class="form-error" *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.errors?.['required']">&gt; message is required</div>
+                </div>
+
+                <button type="submit" [disabled]="contactForm.invalid">[ SEND TRANSMISSION ]</button>
+            </form>
+        </div>
     </div>
-    <div class="row" id="contenedor">
-        <form (ngSubmit)="onSubmit()"  [formGroup]="contactForm" >
-
-            <!-- Nombre input -->
-            <div class="form-outline mb-3">
-                <label class="form-label" ><h2>Name:</h2></label>
-                <input type="text"  required formControlName="name">
-                <div class="alert alert-danger" 
-                *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['required']">This field is required</div>
-                <div class="alert alert-danger" 
-                *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.errors?.['minlength']">More than 3 characters</div>
-            </div>
-
-            <!-- Email input --> 
-            <div class="form-outline mb-3">
-                <label class="form-label"><h2>Email:</h2></label>
-                <input type="email"   required formControlName="email">
-                <div class="alert alert-danger" 
-                *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['required']">This field is required</div>
-                <div class="alert alert-danger"
-                *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.errors?.['email']">Input valid email</div>
-            </div>
-
-            <!-- message input -->
-            <div class="form-outline mb-1">
-                <label class="form-label"><h2>Message:</h2></label>
-                <textarea maxlength="400" type="text" required formControlName="message"></textarea>
-                <div class="alert alert-danger"
-                *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.errors?.['required']">This field is required</div>
-            </div>
-
-            
-
-            
-            <!-- Submit button -->
-            <button [disabled]="contactForm.invalid" type="submit" class="btn btn-primary btn-block mb-4"><h4>Enviar</h4></button>
-        </form>
-
-    </div>
-</div>
+</section>

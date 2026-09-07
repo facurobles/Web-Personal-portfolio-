@@ -78,24 +78,43 @@
     cursor: url(../assets/hand.png), auto;
 }
 
+/* Identificador del sistema alineado con el icono de menú. */
+.system-bar {
+    position: absolute;
+    top: 15px;
+    left: 32px;
+    z-index: 11;
+    color: var(--color-font);
+    font-family: var(--font-display);
+    font-size: 1.7rem;
+    letter-spacing: 0.08em;
+    line-height: 1;
+    transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.system-bar small {
+    color: var(--color-muted);
+    font-size: 1rem;
+}
+
 /*Icono de menu en vista normal de 3 linea horizontal*/
 .menuIconoOn .linea1{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         animation: lineaUno .2s linear 0.3s 1 forwards;
     }
 .menuIconoOn .linea2{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         margin-top: 20%;
         animation: lineaDos .3s linear 1 forwards ;
     }
 .menuIconoOn .linea3{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         margin-top: 20%;
         animation: lineaTres .2s linear 0.3s 1 forwards;
     }
@@ -106,14 +125,14 @@
 .menuIconoOff .linea1{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         transform: rotate(45deg)  translateY(330%);
         animation: lineaUnoOff .2s linear 0.2s  1 forwards;
     }
 .menuIconoOff .linea2{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         margin-top: 20%;
         width: 0px;
         animation: lineaDosOff .2s linear 0.4s 1 forwards ;
@@ -122,7 +141,7 @@
 .menuIconoOff .linea3{
         width: 100%;
         height: 15%;
-        background: rgb(0, 255, 0);
+        background: var(--color-font);
         margin-top: 20%;
         transform: rotate(-45deg)  translateY(-330%);
         animation: lineaTresOff .2s linear 0.2s 1 forwards;
@@ -188,6 +207,14 @@
         transform: translateX(0);
         transition: 0.5s;
         transition-delay: 0.3s;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .system-bar {
+        top: 14px;
+        left: 12px;
+        font-size: 1.35rem;
     }
 }
 
