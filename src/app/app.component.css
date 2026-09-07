@@ -210,6 +210,107 @@
     }
 }
 
+/* Navegación CRT: una barra liviana que comparte el lenguaje de las ventanas. */
+.fondo {
+    height: 80px;
+    border-bottom: 1px solid var(--secundario);
+    background: var(--background-deep);
+}
+
+.divMenu {
+    height: 80px;
+    padding: 0 84px 0 190px;
+}
+
+.menu {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    background: transparent;
+}
+
+.divItem {
+    height: auto;
+    flex: 0 0 auto;
+    width: auto;
+}
+
+.item {
+    position: relative;
+    width: auto;
+    padding: 7px 40px;
+    border: 1px solid transparent;
+    color: var(--color-muted);
+    font-family: var(--font-body);
+    font-size: 1.3rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: color 0.2s ease, border-color 0.2s ease, background 0.2s ease;
+}
+
+.item::before {
+    margin-right: 5px;
+    color: var(--accent-amber);
+    content: '>'; 
+}
+
+.item:hover {
+    border-color: var(--secundario);
+    background: var(--panel);
+    color: var(--color-font);
+    transform: none;
+}
+
+.iconMenu {
+    top: 22px;
+    right: 24px;
+    width: 2.2em;
+    height: 2.2em;
+}
+
+@media screen and (max-width: 992px) {
+    .divMenu {
+        height: auto;
+        padding: 0;
+    }
+
+    .menu {
+        top: 64px;
+        right: 12px;
+        width: 220px;
+        height: auto;
+        align-items: stretch;
+        gap: 0;
+        padding: 8px;
+        border: 1px solid var(--secundario);
+        background: var(--background-deep);
+        box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
+    }
+
+    .divItem {
+        justify-content: stretch;
+    }
+
+    .item {
+        width: 100%;
+        padding: 10px 12px;
+        border-bottom: 1px solid color-mix(in srgb, var(--secundario) 65%, transparent);
+    }
+
+    .divItem:last-child .item {
+        border-bottom: 0;
+    }
+
+    .iconMenu {
+        top: 20px;
+        right: 14px;
+    }
+}
+
 @media screen and (max-width: 600px) {
     .system-bar {
         top: 14px;
