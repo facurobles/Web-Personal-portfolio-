@@ -286,6 +286,8 @@
         align-items: stretch;
         gap: 0;
         padding: 8px;
+        flex-direction: column !important;
+        flex-wrap: nowrap !important;
         border: 1px solid var(--secundario);
         background: var(--background-deep);
         box-shadow: 5px 5px 0 rgba(0, 0, 0, 0.35);
@@ -293,6 +295,8 @@
 
     .divItem {
         justify-content: stretch;
+        width: 100% !important;
+        flex: 0 0 auto !important;
     }
 
     .item {

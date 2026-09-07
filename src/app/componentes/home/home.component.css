@@ -336,8 +336,39 @@ button:nth-child(5) {
 
 @media screen and (max-width: 600px) {
     .control-panel {
-        top: 112px;
-        left: 12px;
+        top: 12px;
+        right: 12px;
+        left: auto;
+        display: flex;
+        width: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 7px;
+        padding: 6px;
+    }
+
+    .control-panel .panel-title {
+        margin: 0;
+        padding-right: 5px;
+        border-right: 1px solid var(--secundario);
+        border-bottom: 0;
+    }
+
+    .control-panel .color-controls,
+    .control-panel .font-controls {
+        flex-direction: row;
+        gap: 4px;
+    }
+
+    .control-panel .font-controls {
+        margin: 0;
+        padding-left: 5px;
+        border-left: 1px solid var(--secundario);
+    }
+
+    .control-panel button {
+        padding: 3px 4px;
+        font-size: 0.58rem;
     }
 }
 

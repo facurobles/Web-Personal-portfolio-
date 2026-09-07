@@ -23,6 +23,11 @@
     transform: translateY(-3px);
 }
 
+/* Evita que el transform de la card limite el modal al tamaño de la tarjeta. */
+.project-card.lightbox-open {
+    transform: none;
+}
+
 .featured-card {
     border-color: var(--color-font);
     box-shadow: 0 0 18px rgba(57, 255, 20, 0.12);
@@ -50,8 +55,105 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    cursor: zoom-in;
     opacity: 0.82;
     transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.image-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 800;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+    background: rgba(0, 0, 0, 0.9);
+    cursor: zoom-out;
+}
+
+.image-lightbox img {
+    width: min(1200px, 92vw);
+    height: min(820px, 88vh);
+    object-fit: contain;
+    border: 1px solid var(--color-font);
+    box-shadow: 0 0 28px rgba(57, 255, 20, 0.2);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    padding: 8px 10px;
+    border: 1px solid var(--color-font);
+    background: var(--background-deep);
+    color: var(--color-font);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+}
+
+.lightbox-close:hover {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
+.lightbox-control {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    display: grid;
+    width: 48px;
+    height: 72px;
+    place-items: center;
+    padding: 0;
+    border: 1px solid var(--color-font);
+    background: rgba(8, 11, 8, 0.78);
+    color: var(--color-font);
+    cursor: pointer;
+    font-family: var(--font-display);
+    font-size: 3.5rem;
+    line-height: 1;
+    transform: translateY(-50%);
+}
+
+.lightbox-control:hover {
+    background: var(--color-font);
+    color: var(--background-deep);
+}
+
+.lightbox-prev {
+    left: 24px;
+}
+
+.lightbox-next {
+    right: 24px;
+}
+
+.lightbox-indicators {
+    position: absolute;
+    bottom: 18px;
+    left: 50%;
+    display: flex;
+    gap: 7px;
+    transform: translateX(-50%);
+}
+
+.lightbox-indicators button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    border: 1px solid var(--color-font);
+    border-radius: 50%;
+    background: var(--background-deep);
+    cursor: pointer;
+}
+
+.lightbox-indicators button.active-slide {
+    background: var(--color-font);
+    box-shadow: 0 0 7px var(--color-font);
 }
 
 .project-card:hover .project-preview img {
@@ -236,5 +338,28 @@
 @media screen and (max-width: 576px) {
     .project-preview {
         height: 220px;
+    }
+
+    .image-lightbox {
+        padding: 20px 10px;
+    }
+
+    .lightbox-close {
+        top: 12px;
+        right: 12px;
+    }
+
+    .lightbox-control {
+        width: 34px;
+        height: 54px;
+        font-size: 2.7rem;
+    }
+
+    .lightbox-prev {
+        left: 8px;
+    }
+
+    .lightbox-next {
+        right: 8px;
     }
 }

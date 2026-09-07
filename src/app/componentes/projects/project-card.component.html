@@ -1,4 +1,4 @@
-<article class="project-card" [class.featured-card]="project.featured">
+<article class="project-card" [class.featured-card]="project.featured" [class.lightbox-open]="enlargedImage">
     <div class="card-topline">
         <span>{{project.id}}</span>
         <span>{{project.status}}</span>
@@ -6,7 +6,9 @@
 
     <div class="project-preview" [attr.aria-label]="project.title + ' screenshots'">
         <ng-container *ngIf="projectImages.length; else noPreview">
-            <img [src]="projectImages[currentSlide]" [alt]="project.title + ' screenshot ' + (currentSlide + 1)" loading="lazy">
+            <img [src]="projectImages[currentSlide]" [alt]="project.title + ' screenshot ' + (currentSlide + 1)" loading="lazy"
+                (click)="openImage(projectImages[currentSlide])" (keydown.enter)="openImage(projectImages[currentSlide])"
+                tabindex="0" role="button" aria-label="Open screenshot">
 
             <button *ngIf="projectImages.length > 1" class="carousel-control carousel-prev" type="button"
                 (click)="previousSlide()" aria-label="Previous screenshot">‹</button>
@@ -25,6 +27,21 @@
             <strong>{{project.type}}</strong>
             </div>
         </ng-template>
+    </div>
+
+    <div *ngIf="enlargedImage" class="image-lightbox" role="dialog" aria-modal="true"
+        [attr.aria-label]="project.title + ' enlarged screenshot'" (click)="closeImage()">
+        <button type="button" class="lightbox-close" (click)="closeImage()" aria-label="Close enlarged screenshot">[ X ]</button>
+        <button *ngIf="projectImages.length > 1" type="button" class="lightbox-control lightbox-prev"
+            (click)="previousSlide(); $event.stopPropagation()" aria-label="Previous screenshot">‹</button>
+        <img [src]="enlargedImage" [alt]="project.title + ' enlarged screenshot'" (click)="$event.stopPropagation()">
+        <button *ngIf="projectImages.length > 1" type="button" class="lightbox-control lightbox-next"
+            (click)="nextSlide(); $event.stopPropagation()" aria-label="Next screenshot">›</button>
+        <div *ngIf="projectImages.length > 1" class="lightbox-indicators">
+            <button *ngFor="let image of projectImages; let index = index" type="button"
+                [class.active-slide]="currentSlide === index" (click)="selectSlide(index); $event.stopPropagation()"
+                [attr.aria-label]="'Show screenshot ' + (index + 1)"></button>
+        </div>
     </div>
 
     <div class="project-content">
