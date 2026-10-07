@@ -124,7 +124,7 @@ export class ProjectsComponent {
       technologies: ['Angular', 'TypeScript', 'HTML', 'CSS'],
       filters: ['ANGULAR'],
       images: ['assets/ari1.png', 'assets/ari2.png', 'assets/ari3.png'],
-      demoUrl: 'https://estudiosaienniblanco.com.ar/'
+      demoUrl: 'https://estudiosaienniblanco-e784d.web.app/'
     },
     {
       id: 'PROJECT_08',
